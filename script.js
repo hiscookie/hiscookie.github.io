@@ -1,3 +1,3 @@
 document.getElementById('alertButton').addEventListener('click', function() {
-    alert('Hello, World!');
+    alert('fuck you!');
 });
