@@ -1,7 +1,6 @@
 h1 {
-  font-color: grey;
-  font-weight:700;
+  color: grey;  /* Use 'color' instead of 'font-color' */
+  font-weight: 700;
   text-align: center;
-  family-font:cursive 
- 
+  font-family: cursive; /* Corrected from 'family-font' */
 }
