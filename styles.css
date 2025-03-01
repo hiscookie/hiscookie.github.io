@@ -5,3 +5,9 @@ h1 {
   font-family: cursive; /* Corrected from 'family-font' */
 }
 
+h2{
+  color:grey;
+  text-aling:right;
+  font-family:cursive;
+}
+
