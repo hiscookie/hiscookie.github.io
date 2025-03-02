@@ -13,6 +13,6 @@ h2 {
 
 .section {
   display: flex;      /* Aligns items in a row */
-  align-items: center; /* Vertically centers items */
+  align-items: right; /* Vertically centers items */
   gap: 10px;          /* Optional: Adds space between items */
 }
