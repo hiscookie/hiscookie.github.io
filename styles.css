@@ -16,3 +16,8 @@ h2 {
   align-items: right; /* Vertically centers items */
   gap: 10px;          /* Optional: Adds space between items */
 }
+.section h1{
+  color:black;
+  font-family:cursive;
+  font-weight:1000;
+}
