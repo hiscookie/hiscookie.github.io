@@ -21,3 +21,7 @@ h2 {
   font-family:cursive;
   font-weight:1000;
 }
+
+a [href*=HISCOOKIE]{
+  color:yellow
+}
