@@ -26,3 +26,9 @@ h2 {
 html {
   background-color: #F0FFFF;
 }
+
+.hi{
+    color: black;
+  font-family: cursive;
+  font-weight: 1000;
+}
