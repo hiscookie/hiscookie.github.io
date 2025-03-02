@@ -1,8 +1,8 @@
 h1 {
-  color: light-purple;  /* Use 'color' instead of 'font-color' */
+  color: #black;  /* Light purple */
   font-weight: 700;
   text-align: center;
-  font-family: cursive; /* Corrected from 'family-font' */
+  font-family: cursive;
 }
 
 h2 {
@@ -12,21 +12,17 @@ h2 {
 }
 
 .section {
-  display: flex;      /* Aligns items in a row */
-  align-items: left; /* Vertically centers items */
-  gap: 10px;          /* Optional: Adds space between items */
-}
-.section h1{
-  color:black;
-  font-family:cursive;
-  font-weight:1000;
+  display: flex;
+  align-items: flex-start; /* Corrected from 'left' */
+  gap: 10px;
 }
 
-a [href*=youtube]{
-  color:yellow
+.section h1 {
+  color: black;
+  font-family: cursive;
+  font-weight: 1000;
 }
 
 html {
   background-color: #F0FFFF;
 }
-
