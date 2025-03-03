@@ -3,13 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Slider Revolution</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Advanced Dolphin Slider</title>
+    <style>
+        /* Container for the slider */
+        .rev-slider-container {
+            position: relative;
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        /* Individual slides */
+        .rev-slider {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Slide Caption */
+        .caption {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide:hover .caption {
+            opacity: 1; /* Fade in caption when hovering over the slide */
+        }
+
+        /* Navigation buttons */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 30px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Navigation dots */
+        .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .dot.active {
+            opacity: 1;
+        }
+
+        .dots:hover .prev, .dots:hover .next {
+            opacity: 1; /* Make buttons visible when hovering over dots */
+        }
+
+        /* Hover effect for navigation buttons */
+        .rev-slider-container:hover .prev,
+        .rev-slider-container:hover .next {
+            opacity: 1;
+        }
+
+        /* Auto-play animation */
+        @keyframes slide-animation {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            75% { transform: translateX(-300%); }
+            100% { transform: translateX(-400%); }
+        }
+    </style>
 </head>
 <body>
 
 <!-- Slider Container -->
-<div class="rev-slider-container">
+<div class="rev-slider-container" id="slider">
     <div class="rev-slider">
         <div class="slide">
             <img src="https://raw.githubusercontent.com/hiscookie/hiscookie.github.io/main/Dolphin-%C2%A9-BFF-1300x900.jpg" alt="Dolphin">
@@ -19,6 +128,17 @@
             <img src="https://raw.githubusercontent.com/hiscookie/hiscookie.github.io/main/Dolphin-%C2%A9-BFF-1300x900.jpg" alt="Dolphin">
             <div class="caption">Bottlenose Dolphin Facts</div>
         </div>
+        <div class="slide">
+            <img src="https://raw.githubusercontent.com/hiscookie/hiscookie.github.io/main/Dolphin-%C2%A9-BFF-1300x900.jpg" alt="Dolphin">
+            <div class="caption">Dolphins Swimming in the Sea</div>
+        </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="dots">
+        <div class="dot active" onclick="moveSlide(0)"></div>
+        <div class="dot" onclick="moveSlide(1)"></div>
+        <div class="dot" onclick="moveSlide(2)"></div>
     </div>
 
     <!-- Navigation Buttons -->
@@ -26,6 +146,50 @@
     <button class="next" onclick="moveSlide(1)">&#10095;</button>
 </div>
 
-<script src="script.js"></script>
+<script>
+    let currentSlideIndex = 0;
+    let slides = document.querySelectorAll('.slide');
+    let dots = document.querySelectorAll('.dot');
+
+    function moveSlide(step) {
+        currentSlideIndex += step;
+
+        if (currentSlideIndex < 0) {
+            currentSlideIndex = slides.length - 1;
+        }
+        if (currentSlideIndex >= slides.length) {
+            currentSlideIndex = 0;
+        }
+
+        // Move the slides
+        document.querySelector('.rev-slider').style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+
+        // Update dot active state
+        dots.forEach((dot, index) => {
+            if (index === currentSlideIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    // Autoplay functionality (optional)
+    let autoplayInterval = setInterval(() => {
+        moveSlide(1);
+    }, 3000);  // Change slide every 3 seconds
+
+    // Pause autoplay when hovering over the slider
+    document.getElementById('slider').addEventListener('mouseenter', () => {
+        clearInterval(autoplayInterval);
+    });
+
+    document.getElementById('slider').addEventListener('mouseleave', () => {
+        autoplayInterval = setInterval(() => {
+            moveSlide(1);
+        }, 3000);
+    });
+</script>
+
 </body>
 </html>
