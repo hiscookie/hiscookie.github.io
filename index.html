@@ -1,17 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="styles.css">
-  <title>About me</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevoSlider Pro - Animated jQuery Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="revolution/css/settings.css">
+    
+    <!-- jQuery and Slider Revolution Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
 </head>
 <body>
-  <h1>Hello, my name is Jacob aka HisCookie</h1>
-  <div class= section>
-  <img src="channels4_profile (1).jpg" alt="Profile Image" class="picture" >
-    <h1>ABOUT ME: </h1>
-   <h2>I been doing <a href="https://www.youtube.com/@HisCookieOFFICIAL">youtube</a> for quite some time and twitch this is my pfp  im 13 i know python,html,css making hacking or intresting devices with esp32s i like engeniering
-   i have 50subs</h2>
-    <h1><a class=hi href="https://streamlabs.com/hiscookieofficial/tip">tip me here :)</a>
-  </div>
+    <div id="rev_slider" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
+        <ul>
+            <li data-transition="fade">
+                <img src="https://source.unsplash.com/1600x900/?nature" alt="Nature" width="1600" height="900">
+                <div class="tp-caption" data-x="center" data-y="center" data-voffset="-50" data-fontsize="50" data-whitespace="nowrap" 
+                    data-frames='[{"delay":500,"speed":1500,"frame":"0","from":"y:-100px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"}]'>
+                    <h1 class="text-white">Amazing Slider</h1>
+                </div>
+            </li>
+            <li data-transition="slideleft">
+                <img src="https://source.unsplash.com/1600x900/?city" alt="City" width="1600" height="900">
+                <div class="tp-caption" data-x="center" data-y="center" data-voffset="-50" data-fontsize="50" 
+                    data-frames='[{"delay":500,"speed":1500,"frame":"0","from":"x:-200px;opacity:0;","to":"o:1;","ease":"Power3.easeOut"}]'>
+                    <h1 class="text-white">Stunning Effects</h1>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            if ($.fn.revolution !== undefined) {
+                $("#rev_slider").show().revolution({
+                    sliderType: "standard",
+                    sliderLayout: "fullscreen",
+                    delay: 5000,
+                    navigation: {
+                        arrows: { enable: true }
+                    },
+                    gridwidth: 1240,
+                    gridheight: 600
+                });
+            } else {
+                console.error("Slider Revolution plugin not loaded.");
+            }
+        });
+    </script>
 </body>
 </html>
