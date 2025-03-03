@@ -9,6 +9,7 @@ body {
 .rev-slider-container {
     position: relative;
     max-width: 100%;
+    height: 500px; /* Adjust the height of the slider */
     margin: auto;
     overflow: hidden;
 }
@@ -20,14 +21,14 @@ body {
 
 .rev-slider .slide {
     min-width: 100%;
-    height: auto;
+    height: 100%; /* Ensure the slide fills the container */
     position: relative;
 }
 
 .rev-slider img {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 100%; /* Ensure images stretch to the full width */
+    height: 100%; /* Ensure images stretch to the full height */
+    object-fit: cover; /* Ensures images cover the area without distortion */
 }
 
 .caption {
@@ -39,7 +40,7 @@ body {
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
-    z-index: 10; /* Ensure caption is above the image */
+    z-index: 10;
 }
 
 button {
@@ -52,7 +53,7 @@ button {
     padding: 15px;
     cursor: pointer;
     font-size: 20px;
-    z-index: 10; /* Ensure buttons are above the slider */
+    z-index: 10;
 }
 
 button:hover {
@@ -67,7 +68,7 @@ button:hover {
     right: 10px;
 }
 
-/* Responsive: Adjust caption size for smaller screens */
+/* Responsive Design */
 @media (max-width: 768px) {
     .caption {
         font-size: 18px;
