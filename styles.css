@@ -1,34 +1,71 @@
-h1 {
-  color: #black;  /* Light purple */
-  font-weight: 700;
-  text-align: center;
-  font-family: cursive;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
 }
 
-h2 {
-  color: grey;
-  text-align: right;
-  font-family: cursive;
+.rev-slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
 }
 
-.section {
-  display: flex;
-  align-items: flex-start; /* Corrected from 'left' */
-  gap: 10px;
+.rev-slider {
+    display: flex;
+    transition: transform 1s ease-in-out;
 }
 
-.section h1 {
-  color: black;
-  font-family: cursive;
-  font-weight: 1000;
+.rev-slider .slide {
+    min-width: 100%;
+    height: auto;
+    position: relative;
 }
 
-html {
-  background-color: #F0FFFF;
+.rev-slider img {
+    width: 100%;
+    height: auto;
 }
 
-.hi{
-    color: black;
-  font-family: cursive;
-  font-weight: 1000;
+.caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .caption {
+        font-size: 18px;
+    }
 }
