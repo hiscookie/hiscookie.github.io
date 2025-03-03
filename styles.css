@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000;
+    overflow-x: hidden;
 }
 
 .rev-slider-container {
@@ -26,6 +27,7 @@ body {
 .rev-slider img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 .caption {
@@ -37,6 +39,7 @@ body {
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
+    z-index: 10; /* Ensure caption is above the image */
 }
 
 button {
@@ -49,6 +52,7 @@ button {
     padding: 15px;
     cursor: pointer;
     font-size: 20px;
+    z-index: 10; /* Ensure buttons are above the slider */
 }
 
 button:hover {
@@ -63,9 +67,14 @@ button:hover {
     right: 10px;
 }
 
-/* Responsive */
+/* Responsive: Adjust caption size for smaller screens */
 @media (max-width: 768px) {
     .caption {
         font-size: 18px;
+    }
+    
+    button {
+        font-size: 18px;
+        padding: 10px;
     }
 }
