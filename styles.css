@@ -1,34 +1,8 @@
-h1 {
-  color: #black;  /* Light purple */
-  font-weight: 700;
-  text-align: center;
-  font-family: cursive;
+h1{
+  font-family:Fantasy;
+  
 }
 
-h2 {
-  color: grey;
-  text-align: right;
-  font-family: cursive;
-}
-
-.section {
-  display: flex;
-  align-items: flex-start; /* Corrected from 'left' */
-  gap: 10px;
-}
-
-.section h1 {
-  color: black;
-  font-family: cursive;
-  font-weight: 1000;
-}
-
-html {
-  background-color: #F0FFFF;
-}
-
-.hi{
-    color: black;
-  font-family: cursive;
-  font-weight: 1000;
+html{
+  color:#adc178;
 }
