@@ -3,12 +3,16 @@ body {
 }
 
 h1{
-  color:#dad7cd!important;
+  color:#a3b18a!important;
   font-family:Fantasy;
   
 }
 
 ul{
-  color:#dad7cd!important;
-  font-family:Fantisy;
+  color:#a3b18a!important;
+  font-family:Fantasy;
+}
+h2{
+  font-family:Fantasy;
+  color:a3b18a;
 }
