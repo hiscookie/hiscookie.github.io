@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="styles.css">
-  <title>tips and tricks for mc</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astronomy Explorer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>minecraft number 1# rules:</h1>
-  <ul>
-<li>never dig straight down</li>
-<li>dont look endermen in the eyes</li>
-    
-  </ul>
-  <h1>MOBS</h1>
-  <h2>CREEPERs</h2>
-  <p>
-    A creeper is a fictional creature in the sandbox video game Minecraft. Creepers are hostile mobs (mobile non-player characters) that spawn in dark places. 
-    Instead of attacking the player directly, they creep up on the player and explode, destroying blocks in the surrounding area and potentially hurting or killing the player if they are within the blast radius.
-    Their green camouflage and generally silent behavior aid in stealth attacks, making them one of the most dangerous mobs in Minecraft. Creepers were first added to Minecraft in a pre-alpha update to the game that was released on September 1, 2009.
-    The creeper has become one of the most widely recognized icons of Minecraft. They have been referenced and parodied in popular culture, and they are featured prominently in Minecraft merchandising and advertising.
-  </p>
+    <div class="controls">
+        <label for="date-picker">Select Date:</label>
+        <input type="date" id="date-picker">
+        <button id="toggle-mode">Toggle Day/Night</button>
+    </div>
+    <div id="sky">
+        <div class="constellation" style="top: 30%; left: 20%;" data-name="Orion" data-description="One of the most recognizable constellations.">
+        </div>
+        <div class="constellation" style="top: 50%; left: 40%;" data-name="Ursa Major" data-description="Home of the Big Dipper.">
+        </div>
+        <div class="constellation" style="top: 70%; left: 60%;" data-name="Cassiopeia" data-description="Looks like a W in the night sky.">
+        </div>
+    </div>
+    <div id="info-box"></div>
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
