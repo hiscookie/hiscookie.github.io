@@ -1,65 +1,97 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const width = window.innerWidth;
-    const height = window.innerHeight * 0.8;
+const timeSelect = document.getElementById('time-select');
+const dateSelect = document.getElementById('date-select');
+const skyContainer = document.getElementById('sky');
+const starsContainer = document.getElementById('stars');
+const planetsContainer = document.getElementById('planets');
+const constellationList = document.getElementById('constellation-list');
+const skyInfo = document.getElementById('sky-info');
 
-    const sky = d3.select("#sky")
-        .attr("width", width)
-        .attr("height", height);
+const starData = [
+  { name: 'Orion', description: 'A prominent constellation located on the celestial equator.' },
+  { name: 'Ursa Major', description: 'A constellation in the northern sky, containing the Big Dipper.' },
+  { name: 'Leo', description: 'A zodiac constellation associated with the lion.' },
+  // Add more constellations as needed
+];
 
-    const datePicker = document.getElementById("date-picker");
-    const toggleButton = document.getElementById("toggle-mode");
+const planetData = [
+  { name: 'Mercury', description: 'The smallest and closest planet to the Sun.' },
+  { name: 'Venus', description: 'Second planet from the Sun, similar in size to Earth.' },
+  { name: 'Earth', description: 'Our home planet, the third from the Sun.' },
+  { name: 'Mars', description: 'The fourth planet, known as the Red Planet.' },
+  // Add more planets as needed
+];
 
-    let isDay = false;
+// Function to simulate day and night sky
+function updateSky() {
+  const isDay = timeSelect.value === 'day';
+  skyContainer.style.backgroundColor = isDay ? '#87CEEB' : '#111';
+  starsContainer.innerHTML = '';  // Clear existing stars
+  planetsContainer.innerHTML = '';  // Clear existing planets
 
-    // Generate random stars (500+)
-    const stars = Array.from({ length: 500 }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 2 + 1,
-        name: `Star ${Math.floor(Math.random() * 1000)}`,
-        description: "A distant star in the universe."
-    }));
+  if (!isDay) {
+    addStars();
+    addPlanets();
+  }
+}
 
-    // Render stars
-    function renderSky() {
-        sky.selectAll("*").remove();
+function addStars() {
+  // For simplicity, generate some random stars
+  for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.position = 'absolute';
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    star.style.width = `${Math.random() * 2 + 1}px`;
+    star.style.height = star.style.width;
+    star.style.backgroundColor = 'white';
+    star.style.borderRadius = '50%';
+    starsContainer.appendChild(star);
+  }
+}
 
-        if (isDay) {
-            // Draw Sun in the center for daytime
-            sky.append("circle")
-                .attr("cx", width / 2)
-                .attr("cy", height / 2)
-                .attr("r", 50)
-                .attr("fill", "yellow");
-        } else {
-            // Draw stars at night
-            sky.selectAll(".star")
-                .data(stars)
-                .enter()
-                .append("circle")
-                .attr("class", "star")
-                .attr("cx", d => d.x)
-                .attr("cy", d => d.y)
-                .attr("r", d => d.radius)
-                .attr("fill", "white")
-                .on("click", (event, d) => {
-                    alert(`${d.name}: ${d.description}`);
-                });
-        }
-    }
+function addPlanets() {
+  // Generate planets at random positions for simplicity
+  planetData.forEach(planet => {
+    const planetElem = document.createElement('div');
+    planetElem.classList.add('planet');
+    planetElem.style.position = 'absolute';
+    planetElem.style.left = `${Math.random() * 100}%`;
+    planetElem.style.top = `${Math.random() * 100}%`;
+    planetElem.style.width = '10px';
+    planetElem.style.height = '10px';
+    planetElem.style.backgroundColor = 'yellow';
+    planetElem.style.borderRadius = '50%';
+    planetElem.title = planet.name;
 
-    // Toggle day/night mode
-    toggleButton.addEventListener("click", function () {
-        isDay = !isDay;
-        document.body.classList.toggle("day-mode");
-        renderSky();
+    planetElem.addEventListener('click', () => {
+      skyInfo.innerHTML = `<strong>${planet.name}</strong>: ${planet.description}`;
     });
 
-    // Change sky based on date
-    datePicker.addEventListener("input", function () {
-        const date = this.value;
-        alert(`Showing sky for ${date} (Feature in progress!)`);
-    });
+    planetsContainer.appendChild(planetElem);
+  });
+}
 
-    renderSky();
+function showConstellations() {
+  constellationList.innerHTML = '';
+  starData.forEach(constellation => {
+    const listItem = document.createElement('li');
+    listItem.textContent = constellation.name;
+    listItem.addEventListener('click', () => {
+      skyInfo.innerHTML = `<strong>${constellation.name}</strong>: ${constellation.description}`;
+    });
+    constellationList.appendChild(listItem);
+  });
+}
+
+// Event listeners
+timeSelect.addEventListener('change', updateSky);
+dateSelect.addEventListener('change', () => {
+  const selectedDate = dateSelect.value;
+  skyInfo.innerHTML = `Sky view for ${selectedDate}`;
+  updateSky();
 });
+
+// Initial setup
+updateSky();
+showConstellations();
