@@ -11,20 +11,18 @@ body {
 }
 
 #sky {
-    position: relative;
     width: 100vw;
     height: 80vh;
     background: black;
-    overflow: hidden;
 }
 
-.constellation {
-    position: absolute;
-    width: 10px;
-    height: 10px;
+.day-mode {
     background: white;
-    border-radius: 50%;
-    cursor: pointer;
+    color: black;
+}
+
+.day-mode #sky {
+    background: #87CEEB; /* Light blue for daytime */
 }
 
 #info-box {
@@ -38,19 +36,3 @@ body {
     display: none;
     white-space: nowrap;
 }
-
-.day-mode {
-    background: white;
-    color: black;
-}
-
-.day-mode #sky {
-    background: #ccc;
-}
-
-.day-mode .constellation {
-    background: black;
-}
-
-
-
