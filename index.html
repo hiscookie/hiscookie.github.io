@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Astronomy Sky Viewer</title>
+  <title>Real Life Sky Viewer</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <h1>Astronomy Sky Viewer</h1>
+    <h1>Real Life Sky Viewer</h1>
     <div class="controls">
       <label for="time-select">Time:</label>
       <select id="time-select">
@@ -22,20 +22,11 @@
   </header>
 
   <main>
-    <div class="sky" id="sky">
-      <div class="star-container" id="stars"></div>
-      <div class="planet-container" id="planets"></div>
-      <div id="sky-info"></div>
-    </div>
-
-    <div class="constellations">
-      <h2>Constellations</h2>
-      <ul id="constellation-list"></ul>
-    </div>
+    <div id="sky"></div>
   </main>
 
   <footer>
-    <p>Sky data is simulated. Integrate real data later.</p>
+    <p>Sky data is from Stellarium Web API. Real-life sky simulation.</p>
   </footer>
 
   <script src="script.js"></script>
