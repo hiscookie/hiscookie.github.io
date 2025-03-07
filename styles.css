@@ -1,18 +1,53 @@
 body {
-  background-color: #588157;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    transition: background 0.5s, color 0.5s;
 }
 
-h1{
-  color:#344e41!important;
-  font-family:Fantasy;
-  
+.controls {
+    margin: 20px;
 }
 
-ul{
-  color:#344e41!important;
-  font-family:Fantasy;
+#sky {
+    position: relative;
+    width: 100vw;
+    height: 80vh;
+    background: black;
+    overflow: hidden;
 }
-h2{
-  color:#344e41 !important;
-  font-family:Fantasy;
+
+.constellation {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#info-box {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    white-space: nowrap;
+}
+
+.day-mode {
+    background: white;
+    color: black;
+}
+
+.day-mode #sky {
+    background: #ccc;
+}
+
+.day-mode .constellation {
+    background: black;
 }
