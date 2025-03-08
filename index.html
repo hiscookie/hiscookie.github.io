@@ -1,35 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Real Life Sky Viewer</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Uploader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+        h1 {
+            color: #5a5a5a;
+            text-align: center;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .message {
+            color: green;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Real Life Sky Viewer</h1>
-    <div class="controls">
-      <label for="time-select">Time:</label>
-      <select id="time-select">
-        <option value="night">Night</option>
-        <option value="day">Day</option>
-      </select>
-      
-      <label for="date-select">Select Date:</label>
-      <input type="date" id="date-select" value="2025-05-05">
+    <div class="container">
+        <h1>Upload Video to YouTube</h1>
+        <form id="uploadForm">
+            <label for="videoFile">Choose Video File:</label>
+            <input type="file" id="videoFile" name="videoFile" accept="video/*" required>
+            <input type="submit" value="Upload Video">
+        </form>
+        <div class="message" id="message"></div>
     </div>
-  </header>
 
-  <main>
-    <div id="sky"></div>
-  </main>
-  
+    <script>
+        const uploadForm = document.getElementById('uploadForm');
+        const messageDiv = document.getElementById('message');
 
-  <footer>
-    <p>Sky data is from Stellarium Web API. Real-life sky simulation.</p>
-  </footer>
+        uploadForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-  <script src="script.js"></script>
+            const fileInput = document.getElementById('videoFile');
+            const file = fileInput.files[0];
+
+            if (file) {
+                // Here, you'd send the file to the backend to upload to YouTube
+                // This is a mock response to simulate the upload process
+
+                messageDiv.textContent = 'Uploading... Please wait.';
+                messageDiv.style.color = 'orange';
+
+                // Simulate upload delay
+                setTimeout(() => {
+                    // Here you would interact with the Python backend to upload the file
+                    messageDiv.textContent = 'Video uploaded successfully!';
+                    messageDiv.style.color = 'green';
+                }, 2000);
+            } else {
+                messageDiv.textContent = 'Please select a video file.';
+                messageDiv.style.color = 'red';
+            }
+        });
+    </script>
 </body>
 </html>
