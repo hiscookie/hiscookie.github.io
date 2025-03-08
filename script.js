@@ -1,13 +1,5 @@
-document.getElementById("magicButton").addEventListener("click", function() {
-    document.body.style.backgroundColor = getRandomColor();
-    document.getElementById("content").innerHTML = "<p>Something magical just happened!</p>";
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    alert("Thank you for your message! We will get back to you soon.");
+    document.querySelector("form").reset();
 });
-
-function getRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
