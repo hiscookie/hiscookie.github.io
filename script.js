@@ -1,34 +1,42 @@
-const timeSelect = document.getElementById('time-select');
-const dateSelect = document.getElementById('date-select');
-const skyContainer = document.getElementById('sky');
+const uploadForm = document.getElementById('uploadForm');
+const messageDiv = document.getElementById('message');
 
-// Set the default sky view to be the night sky
-let currentTime = 'night';
+uploadForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-// Initialize Stellarium web viewer
-let stellariumUrl = "https://stellarium-web.org/";
-let skyView;
+    const fileInput = document.getElementById('videoFile');
+    const file = fileInput.files[0];
 
-// Function to load the Stellarium Web Viewer based on the selected date and time
-function loadSkyView() {
-  const date = dateSelect.value || '2025-05-05';
-  const timeOfDay = currentTime === 'day' ? 'day' : 'night';
-  
-  // Construct the URL with the selected date and time
-  const viewerUrl = `${stellariumUrl}?date=${date}&time=${timeOfDay}`;
-  
-  skyContainer.innerHTML = `<iframe src="${viewerUrl}" width="100%" height="100%" frameborder="0"></iframe>`;
-}
+    if (file) {
+        // Display uploading message
+        messageDiv.textContent = 'Uploading... Please wait.';
+        messageDiv.style.color = 'orange';
 
-// Event listeners
-timeSelect.addEventListener('change', (event) => {
-  currentTime = event.target.value;
-  loadSkyView();
+        const formData = new FormData();
+        formData.append('videoFile', file);
+
+        // Send the file to the backend to handle the YouTube upload
+        try {
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            
+            if (response.ok) {
+                messageDiv.textContent = 'Video uploaded successfully!';
+                messageDiv.style.color = 'green';
+            } else {
+                messageDiv.textContent = 'Error uploading video: ' + result.error;
+                messageDiv.style.color = 'red';
+            }
+        } catch (error) {
+            messageDiv.textContent = 'Error uploading video: ' + error.message;
+            messageDiv.style.color = 'red';
+        }
+    } else {
+        messageDiv.textContent = 'Please select a video file.';
+        messageDiv.style.color = 'red';
+    }
 });
-
-dateSelect.addEventListener('change', () => {
-  loadSkyView();
-});
-
-// Initial load
-loadSkyView();
