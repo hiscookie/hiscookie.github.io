@@ -1,83 +1,60 @@
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = 600;
-canvas.height = 400;
-
-let player = {
-    x: 50,
-    y: canvas.height / 2 - 25,
-    width: 50,
-    height: 50,
-    speed: 5
-};
-
-let obstacles = [];
-let score = 0;
-let gameRunning = true;
-
-function createObstacle() {
-    let size = Math.random() * 40 + 20;
-    let obstacle = {
-        x: canvas.width,
-        y: Math.random() * (canvas.height - size),
-        width: size,
-        height: size,
-        speed: 3
-    };
-    obstacles.push(obstacle);
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2e;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-function movePlayer(event) {
-    if (event.key === "ArrowUp" && player.y > 0) {
-        player.y -= player.speed;
-    }
-    if (event.key === "ArrowDown" && player.y + player.height < canvas.height) {
-        player.y += player.speed;
-    }
+/* Header */
+header {
+    background-color: #6200ea;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-function updateGame() {
-    if (!gameRunning) return;
-    
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    ctx.fillStyle = "blue";
-    ctx.fillRect(player.x, player.y, player.width, player.height);
-    
-    obstacles.forEach((obs, index) => {
-        obs.x -= obs.speed;
-        ctx.fillStyle = "red";
-        ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
-        
-        if (obs.x + obs.width < 0) {
-            obstacles.splice(index, 1);
-            score++;
-        }
-        
-        if (
-            player.x < obs.x + obs.width &&
-            player.x + player.width > obs.x &&
-            player.y < obs.y + obs.height &&
-            player.y + player.height > obs.y
-        ) {
-            gameOver();
-        }
-    });
-
-    ctx.fillStyle = "white";
-    ctx.font = "20px Arial";
-    ctx.fillText("Score: " + score, 10, 30);
-
-    requestAnimationFrame(updateGame);
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
 }
 
-function gameOver() {
-    gameRunning = false;
-    alert("Game Over! Your Score: " + score);
-    document.location.reload();
+header p {
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
-setInterval(createObstacle, 1000);
-document.addEventListener("keydown", movePlayer);
-updateGame();
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: #2a2a3a;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Lists */
+ol, ul {
+    text-align: left;
+    margin: 10px auto;
+    width: fit-content;
+}
+
+li {
+    margin: 5px 0;
+}
+
+/* Footer */
+footer {
+    background-color: #6200ea;
+    padding: 10px;
+    font-size: 0.9em;
+    margin-top: 20px;
+}
