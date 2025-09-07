@@ -1,1 +1,396 @@
-<h1>jus rasyte sibidi smp website <a href= "https://skibidismp.github.io/">cia</a></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HisCookie - Content Creator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .profile-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #8a2be2;
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .profile-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #8a2be2, #da70d6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            color: #d8d8d8;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+        }
+        
+        .social-link.youtube:hover {
+            background: #ff0000;
+        }
+        
+        .social-link.tiktok:hover {
+            background: #000000;
+        }
+        
+        .social-link.discord:hover {
+            background: #5865f2;
+        }
+        
+        .social-link i {
+            z-index: 2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: #da70d6;
+        }
+        
+        .about {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            color: #da70d6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .platform-highlights {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .platform-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            min-width: 200px;
+            margin: 0.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .platform-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+        }
+        
+        .platform-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .platform-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #da70d6;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .floating-cookies {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23d4a76a"/><circle cx="35" cy="40" r="5" fill="%23855e32"/><circle cx="65" cy="40" r="5" fill="%23855e32"/><circle cx="50" cy="60" r="7" fill="%23855e32"/><circle cx="70" cy="70" r="4" fill="%23855e32"/><circle cx="30" cy="30" r="3" fill="%23855e32"/><circle cx="25" cy="65" r="4" fill="%23855e32"/><circle cx="75" cy="30" r="3" fill="%23855e32"/></svg>');
+            background-size: contain;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fall {
+            from { transform: translateY(-100px) rotate(0deg); }
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 15px #8a2be2;
+            color: white;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                flex-wrap: wrap;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .platform-highlights {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .platform-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated cookies in background -->
+    <div id="cookies-container"></div>
+    
+    <header>
+        <div class="profile-container">
+            <img src="https://i.imgur.com/2HXCd2d.jpeg" alt="HisCookie Profile Picture">
+        </div>
+        <h1>HisCookie</h1>
+        <p class="tagline">Creating content that's sweet like cookies!</p>
+        
+        <div class="social-links">
+            <a href="https://www.youtube.com/@HisCookieOFFICIAL" class="social-link youtube" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/@hiscookie" class="social-link tiktok" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://discord.gg/dks6ggCyED" class="social-link discord" target="_blank">
+                <i class="fab fa-discord"></i>
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="about">
+            <h2 class="section-title">About Me</h2>
+            <p>Welcome to my official website! I'm HisCookie, a content creator who loves making gaming videos, entertaining my audience, and building a community of awesome people. Join me on my adventures through various games and let's have some fun together!</p>
+            <p>Make sure to subscribe to my YouTube channel, follow me on TikTok, and join our Discord community to stay updated with all the latest content and events!</p>
+        </section>
+        
+        <h2 class="section-title">My Platforms</h2>
+        <div class="platform-highlights">
+            <div class="platform-item">
+                <div class="platform-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="platform-name">YouTube</div>
+                <p>Subscribe for gaming content and more!</p>
+            </div>
+            <div class="platform-item">
+                <div class="platform-icon">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <div class="platform-name">TikTok</div>
+                <p>Follow for short-form content!</p>
+            </div>
+            <div class="platform-item">
+                <div class="platform-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <div class="platform-name">Discord</div>
+                <p>Join our community!</p>
+            </div>
+        </div>
+        
+        <h2 class="section-title">My Content</h2>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-content">
+                    <h3>Gaming Videos</h3>
+                    <p>Watch me play through the latest games, provide tips and tricks, and have hilarious moments with friends.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-content">
+                    <h3>Live Streams</h3>
+                    <p>Join me for live streaming sessions where we interact, play games together, and have a great time.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-content">
+                    <h3>Short Content</h3>
+                    <p>Check out my TikTok for short, entertaining clips from my streams and videos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 HisCookie | All Rights Reserved</p>
+        <p>Designed with ❤️ for the Cookie community</p>
+    </footer>
+
+    <script>
+        // Create falling cookies animation
+        function createCookies() {
+            const cookiesContainer = document.getElementById('cookies-container');
+            const numberOfCookies = 15;
+            
+            for (let i = 0; i < numberOfCookies; i++) {
+                const cookie = document.createElement('div');
+                cookie.classList.add('floating-cookies');
+                
+                // Random position
+                const left = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 20 + 20;
+                
+                // Random animation duration
+                const duration = Math.random() * 10 + 5;
+                
+                // Random delay
+                const delay = Math.random() * 5;
+                
+                cookie.style.left = `${left}vw`;
+                cookie.style.width = `${size}px`;
+                cookie.style.height = `${size}px`;
+                cookie.style.animation = `fall ${duration}s linear ${delay}s infinite`;
+                
+                cookiesContainer.appendChild(cookie);
+            }
+        }
+        
+        // Interactive social media links
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.transform = 'scale(1.1) translateY(-5px)';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                link.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+        
+        // Initialize the page effects
+        window.addEventListener('load', () => {
+            createCookies();
+            
+            // Add subtle animation to platform items
+            const platformItems = document.querySelectorAll('.platform-item');
+            platformItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
